@@ -8,6 +8,29 @@
 当前方案的目标不是复刻 `ScreenUtil` 的全部行为，而是在保留 375 设计稿还原效率的同时，
 避免大屏、横屏、折叠屏、分屏场景下出现控件被等比放大、布局失真、字体不可控等问题。
 
+
+```dart
+void main() {
+  runApp(MyApp());
+}
+## 使用
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      builder: (context, child) {
+        return AppDimensScope(child: child ?? const SizedBox.shrink());
+      },
+    );
+  }
+}
+
+```
+
+
+
 ## 1. 背景与目标
 
 设计稿基准尺寸为：
